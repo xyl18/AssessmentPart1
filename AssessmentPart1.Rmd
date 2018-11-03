@@ -3,18 +3,13 @@ title: "AssessmentPart1"
 output: html_notebook
 ---
 
-This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
-
-Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
-
 ```{r}
 # Check working path and files
 getwd()
 list.files(getwd())
 ```
 ```{r}
-#install.packages(c("sf", "tidyverse", "tmap", "tmaptools", "geojsonio", "sp", "reshape2", "stplanr", "leaflet", "broom"，"maptools", “OpenStreetMap”))
-install.packages(c("OpenStreetMap"))
+install.packages(c("sf", "tidyverse", "tmap", "tmaptools", "geojsonio", "sp", "reshape2", "stplanr", "leaflet", "broom", "maptools", "stplanr"))
 library(tidyverse)
 library(sf)
 library(tmap)
@@ -32,34 +27,32 @@ library(grDevices)
 library(methods)
 library(RColorBrewer)
 library(classInt)
-library(OpenStreetMap)
 library(rgeos)
 library(rgdal)
 library(geojsonio)
+library(classInt)
 ```
 
 ```{r}
-install.packages(c("classint", "OpenStreetMap", "tmap"))
-library(OpenStreetMap)
 #read the shapefile into a simple features object
-LeedsMapLSOA <- read_shape("D:\\GIS\\datas\\Leeds_CDRC_2011_CensusGeodatapack\\shapefiles\\Leeds_lsoa11.shp", as.sf = TRUE)
+LeedsMapLSOA <- read_shape("D:\\GIS\\datas\\Leeds_CDRC_2011_CensusGeodatapack\\shapefiles\\Leeds_oa11.shp", as.sf = TRUE)
 ```
 
 ```{r}
 #read Leeds data attributes
-LeedsData <- read_csv("D:\\GIS\\datas\\Leeds_CDRC_2011_CensusGeodatapack\\tables\\QS102EW_lsoa11.csv", na = "n/a")
+LeedsData <- read_csv("D:\\GIS\\datas\\Leeds_CDRC_2011_CensusGeodatapack\\tables\\QS102EW_oa11.csv", na = "n/a")
 #rename the columns in LeedsData
 names(LeedsData)[2:4] <- c("All_usual_residents","Area(Hectares)", "Density_number_of_persons_per_hectare")
 ```
 
 ```{r}
 #join the data to the @data slot in the Leeds data frame
-LeedsDataMapLSOA <- append_data(LeedsMapLSOA,LeedsData, key.shp = "LSOA11CD", key.data = "GeographyCode", ignore.duplicates = TRUE)
+LeedsDataMapOA <- append_data(LeedsMapLSOA,LeedsData, key.shp = "OA11CD", key.data = "GeographyCode", ignore.duplicates = TRUE)
 ```
 
 ```{r}
 palette1<-scale_fill_continuous(low="white", high="red", "Density_number_of_persons_per_hectare")
 labels<-labs(list(title="Leeds Population Density 2011"),x="Longitude", y="Latitude")
-ggplot()+geom_sf(mapping = aes(geometry=geometry, fill=Density_number_of_persons_per_hectare),data = LeedsDataMapLSOA)+theme_minimal()+palette1+labels
+ggplot()+geom_sf(mapping = aes(geometry=geometry, fill=Density_number_of_persons_per_hectare),data = LeedsDataMapOA)+theme_minimal()+palette1+labels
 ```
 
