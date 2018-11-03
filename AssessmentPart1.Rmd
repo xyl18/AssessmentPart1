@@ -35,7 +35,7 @@ library(classInt)
 
 ```{r}
 #read the shapefile into a simple features object
-LeedsMapLSOA <- read_shape("D:\\GIS\\datas\\Leeds_CDRC_2011_CensusGeodatapack\\shapefiles\\Leeds_oa11.shp", as.sf = TRUE)
+LeedsMapOA <- read_shape("D:\\GIS\\datas\\Leeds_CDRC_2011_CensusGeodatapack\\shapefiles\\Leeds_oa11.shp", as.sf = TRUE)
 ```
 
 ```{r}
@@ -46,8 +46,8 @@ names(LeedsData)[2:4] <- c("All_usual_residents","Area(Hectares)", "Density_numb
 ```
 
 ```{r}
-#join the data to the @data slot in the Leeds data frame
-LeedsDataMapOA <- append_data(LeedsMapLSOA,LeedsData, key.shp = "OA11CD", key.data = "GeographyCode", ignore.duplicates = TRUE)
+#join the data from census to the in the Leeds data frame
+LeedsDataMapOA <- append_data(LeedsMapOA,LeedsData, key.shp = "OA11CD", key.data = "GeographyCode", ignore.duplicates = TRUE)
 ```
 
 ```{r}
