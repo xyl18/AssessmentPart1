@@ -41,18 +41,18 @@ BirminghamMapMSOA <- read_shape("D:\\GIS\\datas\\Birmingham_CDRC_2011_CensusGeod
 ```{r}
 #read Leeds data attributes
 BirminghamData <- read_csv("D:\\GIS\\datas\\Birmingham_CDRC_2011_CensusGeodatapack\\tables\\QS102EW_msoa11.csv", na = "n/a")
-#rename the columns in LeedsData
+#rename the columns in BirminghamData
 names(BirminghamData)[2:4] <- c("All_usual_residents","Area(Hectares)", "Density_number_of_persons_per_hectare")
 ```
 
 ```{r}
-#join the data from census to the in the Leeds data frame
+#join the data from census to the in the Birmingham data frame
 BirminghamDataMapMSOA <- append_data(BirminghamMapMSOA,BirminghamData, key.shp = "MSOA11CD", key.data = "GeographyCode", ignore.duplicates = TRUE)
 ```
 
 ```{r}
 palette1<-scale_fill_continuous(low="white", high="red", "Density_number_of_persons_per_hectare")
-labels<-labs(list(title="Birmingham Population Density 2011"),x="Longitude", y="Latitude")
+labels<-labs(title="Birmingham Population Density 2011",x="Longitude", y="Latitude")
 ggplot()+geom_sf(mapping = aes(geometry=geometry, fill=Density_number_of_persons_per_hectare),data = BirminghamDataMapMSOA)+theme_minimal()+palette1+labels
 ```
 
