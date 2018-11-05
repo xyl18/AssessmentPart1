@@ -39,7 +39,7 @@ BirminghamMapMSOA <- read_shape("D:\\GIS\\datas\\Birmingham_CDRC_2011_CensusGeod
 ```
 
 ```{r}
-#read Leeds data attributes
+#read Birmingham data attributes
 BirminghamData <- read_csv("D:\\GIS\\datas\\Birmingham_CDRC_2011_CensusGeodatapack\\tables\\QS102EW_msoa11.csv", na = "n/a")
 #rename the columns in BirminghamData
 names(BirminghamData)[2:4] <- c("All_usual_residents","Area(Hectares)", "Density_number_of_persons_per_hectare")
