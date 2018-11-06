@@ -8,6 +8,7 @@ output: html_notebook
 getwd()
 list.files(getwd())
 ```
+
 ```{r}
 install.packages(c("sf", "tidyverse", "tmap", "tmaptools", "geojsonio", "sp", "reshape2", "stplanr", "leaflet", "broom", "maptools", "stplanr"))
 library(tidyverse)
@@ -32,6 +33,12 @@ library(rgdal)
 library(geojsonio)
 library(classInt)
 ```
+```{r fig.width=1, fig.height=10, echo=FALSE}
+library(png)
+library(grid)
+figure1 <- readPNG("D:\\GIS\\Birmingham.png")
+grid.raster(figure1)
+```
 
 ```{r}
 #read the shapefile into a simple features object
@@ -52,7 +59,7 @@ BirminghamDataMapMSOA <- append_data(BirminghamMapMSOA,BirminghamData, key.shp =
 
 ```{r}
 palette1<-scale_fill_continuous(low="white", high="red", "Density_number_of_persons_per_hectare")
-labels<-labs(title="Birmingham Population Density 2011",x="Longitude", y="Latitude")
+labels<-labs(title="Figure 2: Birmingham Population Density 2011",x="Longitude", y="Latitude")
 ggplot()+geom_sf(mapping = aes(geometry=geometry, fill=Density_number_of_persons_per_hectare),data = BirminghamDataMapMSOA)+theme_minimal()+palette1+labels
 ```
 
