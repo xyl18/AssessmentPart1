@@ -74,3 +74,20 @@ Therefore, ArcGIS relies on mouse, while R relies on keyboard. Comparing with R,
 
 Additionally, after comparing those two maps, the modifiable areal unit problem (MAUP) is a significant issue for 2011 census data. Data are allocated to units of different scale and shapes, for example, LSOAs and MSOAs, contributing different analysis results (Lloyd, 2014). In figure 1, data are located in LSOAs, which including more household per area than MSOAs (ONS, n.d.). Figure 1 has a number of darkest areas than figure 2. Conclusion for figure 1 may be dense population appear in surrounding city centre areas, while conclusion for figure 2 is the population are cluster in a MSOA. This problem is a wider and unsolved yet so that alternative measures to reduce the impact of it can be considered. 
 
+## Bibliography 
+ESRI 2017. ArcGIS 10.3.x for Desktop system requirements.   
+http://desktop.arcgis.com/en/arcmap/10.3/get-started/system-requirements/arcgis-desktop-system-requirements.htm [Accessed November 6 2018] (Online Publications)
+
+Krygier, J. and Wood, D., 2011. Making maps : a visual guide to map design for GIS 2nd ed., New York ; London: Guilford.
+
+Lloyd, C. D. (2014). The Modifiable Areal Unit Problem. In: Lloyd, C. D. ed., Exploring Spatial Scale in Geography. Chichester, UK: John Wiley & Sons, Ltd, pp. 29–44.
+
+Maindonald, J. and Braun, W. J. 2010. A brief introduction to R. In: Maindonald, J. and Braun, W. J. eds., Data Analysis and Graphics Using R: An Example-Based Approach. Cambridge: Cambridge University Press, pp. 1–42. https://doi.org/10.1017/CBO9781139194648.004 [Accessed November 6 2018] (Online Publications)
+
+ONS, n.d. Census geography. 
+https://www.ons.gov.uk/methodology/geography/ukgeographies/censusgeography#super-output-area-soa [Accessed November 6 2018] (Online Publications)
+
+Scott, L.M. and Janikas, M.V. 2010. In: Fischer, M.M. & Getis, A. eds., Handbook of Applied Spatial Analysis Software Tools, Methods and Applications. Berlin, Heidelberg : Springer Berlin Heidelberg
+
+Valero-Mora, P.M. and Ledesma, R. 2012. Graphical User Interfaces for R.
+https://www.jstatsoft.org/article/view/v049i01 [Accessed November 6 2018] (Online Publications)
